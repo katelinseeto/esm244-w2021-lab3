@@ -1,0 +1,17 @@
+---
+title: 'Part 1: Binary Logistic Regression'
+author: "Katelin Seeto"
+date: "1/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(palmerpenguins)
+library(GGally) #make pairs plots
+library(broom) # to get tidy model outputs in df's
+library(jtools) # make quick graphs of model outputs
+```
+
