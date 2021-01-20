@@ -15,3 +15,38 @@ library(broom) # to get tidy model outputs in df's
 library(jtools) # make quick graphs of model outputs
 ```
 
+### Create pairs plot with GGally
+
+Notes:  
+* `ggpairs()` creates plots based on the variable you select (in this case we chose species) that shows multivariate correlations, distributions, and relationships both within and across variables
+* `fct_drop()` will drop factor levels where there's no observations for those factor levels
+
+```{r}
+penguins %>% 
+  select(species, bill_length_mm:sex) %>% 
+  ggpairs(aes(color = species))
+```
+
+Create a subset with only Adelie and Chinstrap penguins. Remember that species are listed stored as factor with levels
+
+```{r}
+adelie_chinstrap <- penguins %>% 
+  filter(species %in% c("Adelie", "Chinstrap")) %>% 
+# Since species was a factor, even if you filter out all observations for Gentoo, it still appears as a factor level even if it doesn't appear in your df, therefore must use fct_drop
+  mutate(species = fct_drop(species))
+```
+
+Dataviz of Adelie and Chinstrap: 
+
+```{r}
+ggplot(data = adelie_chinstrap, aes(x = body_mass_g, y = flipper_length_mm))+ 
+  geom_point(aes(color = sex))+ 
+  facet_wrap(~species)
+```
+Binary logistic regression 
+
+
+
+
+
+
