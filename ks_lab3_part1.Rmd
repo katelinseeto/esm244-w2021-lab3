@@ -18,8 +18,8 @@ library(jtools) # make quick graphs of model outputs
 ### Create pairs plot with GGally
 
 Notes:  
-* `ggpairs()` creates plots based on the variable you select (in this case we chose species) that shows multivariate correlations, distributions, and relationships both within and across variables
-* `fct_drop()` will drop factor levels where there's no observations for those factor levels
+* `ggpairs()` creates plots based on the variable you select (in this case we chose species) that shows multivariate correlations, distributions, and relationships both within and across variables  
+* `fct_drop()` will drop factor levels where there's no observations for those factor levels  
 
 ```{r}
 penguins %>% 
@@ -43,10 +43,27 @@ ggplot(data = adelie_chinstrap, aes(x = body_mass_g, y = flipper_length_mm))+
   geom_point(aes(color = sex))+ 
   facet_wrap(~species)
 ```
-Binary logistic regression 
+Binary logistic regression to find the probability based on several variables that a penguin is either Adelie or Chinstrap
 
+Variables we're using:  
+- body mass  
+- flipper length  
+- penguin sex  
 
+Notes:  
+* `glm()` generalized linear model, can use for this binary logistic regression since outcome is still a linear regression of predictor variables, and binary logistic regression is the log odds of the probability and the fact that the model is generalized lets us specify what the link is on the left side of the equation  
 
+```{r}
+adelie_chinstrap_blr <- glm(species ~ body_mass_g + flipper_length_mm + sex,
+                            data = adelie_chinstrap,
+                            family = "binomial") # reads like species as a function of body_mass_g and flipper_length_mm and sex, the data where I'm getting this is from adelie_chinstrap, and family specifies that the link on the left side of the equation is that we want the log odds with only two outcome variables 
+```
+
+Take a look at the outcomes: 
+
+```{r}
+adelie_chinstrap_blr 
+```
 
 
 
