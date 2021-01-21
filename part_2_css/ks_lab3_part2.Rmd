@@ -2,7 +2,10 @@
 title: 'Part 2: Customizing RMarkdown with CSS'
 author: "Katelin Seeto"
 date: "1/21/2021"
-output: html_document
+output: 
+  html_document:
+    css: "style.css"
+
 ---
 
 ```{r setup, include=FALSE}
@@ -12,4 +15,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ### CSS= Cascading Style Sheets
 
 * Want your .Rmd and CSS file in the same folder  
-* 
+* Create CSS file and then let Rmarkdown know where to look for the file to customize  
+* Do this in the yaml ( the top portion of .Rmd), in the output section
+
+## level 2 header 
+
+### level 3 header  
+
+### level 4 header 
+
+Regular body text 

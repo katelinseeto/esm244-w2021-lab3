@@ -1,0 +1,33 @@
+/* Creates comments similar to the # in .Rmd */
+
+/* Import Google fonts from https://fonts.google.com/ */
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Righteous&display=swap');
+
+/* Update headers */
+
+h1 {
+  color:teal;
+}
+
+h2 {
+  font-family: "Righteous";
+  font-size: 30px;
+  color: purple;
+}
+
+h3 {
+  font-family:"Permanent Marker";
+  font-size: 23px;
+  color: magenta;
+}
+
+h4 {
+  font-family: "Righteous";
+}
+
+body {
+  font-family: "Righteous";
+  color: orange;
+  background-color: skyblue;
+}
