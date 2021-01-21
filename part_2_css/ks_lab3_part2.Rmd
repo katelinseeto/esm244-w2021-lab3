@@ -1,0 +1,15 @@
+---
+title: 'Part 2: Customizing RMarkdown with CSS'
+author: "Katelin Seeto"
+date: "1/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### CSS= Cascading Style Sheets
+
+* Want your .Rmd and CSS file in the same folder  
+* 
