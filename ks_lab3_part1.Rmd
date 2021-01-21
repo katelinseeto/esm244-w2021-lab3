@@ -62,8 +62,23 @@ adelie_chinstrap_blr <- glm(species ~ body_mass_g + flipper_length_mm + sex,
 Take a look at the outcomes: 
 
 ```{r}
-adelie_chinstrap_blr 
+adelie_chinstrap_blr # Calls up model outcomes and coefficients for each predictor value
+
+summary(adelie_chinstrap_blr)
 ```
 
+Notes:  
+* When we call levels(adelie_chinstrap$species) we notice that Adelie comes up 1st as level 0 and Chinstrap is therefore 1. So looking at a log linear expression, the left hand side of the equation is going to be the probability of Chinstrap, the log odds of the non zero  
 
+Interpreting Results:  
+* Under estimate column in summary of model, we see that flipper_length_mm is a positive number, would interpret that as: With an increase in flipper length the odds of being a Chinstrap penguin increase.  
+* Pr(>|z|) is the p value, notice flipper_length_mm has a significant p value
+
+
+
+Let's check that the significant results for flipper length actually make sense, by doing some visualization. 
+```{r}
+ggplot(data = adelie_chinstrap, aes(x = species, y = flipper_length_mm))+
+  geom_jitter(aes(color = sex))
+```
 
